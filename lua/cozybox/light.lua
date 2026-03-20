@@ -37,8 +37,8 @@ return {
     CursorLineNr = { bg = background },
     CursorLine = { bg = surface },
     FoldColumn = { bg = background },
-    DiffAdd = { bg = "#1e2718" },
-    DiffChange = { bg = "#1e1e18" },
+    DiffAdd = { bg = "#d9e8d2" },
+    DiffChange = { bg = "#eee4c7" },
     DiffDelete = { bg = "#ffc7c7" },
   },
 }
