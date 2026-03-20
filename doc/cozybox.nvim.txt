@@ -1,0 +1,151 @@
+*cozybox.nvim.txt*        For Neovim >= 0.8.0       Last change: 2026 March 09
+
+==============================================================================
+Table of Contents                             *cozybox.nvim-table-of-contents*
+
+1. Prerequisites                                  |cozybox.nvim-prerequisites|
+2. Installing                                        |cozybox.nvim-installing|
+  - Using packer                        |cozybox.nvim-installing-using-packer|
+  - Using lazy.nvim                  |cozybox.nvim-installing-using-lazy.nvim|
+  - Using vim-plug                    |cozybox.nvim-installing-using-vim-plug|
+3. Basic Usage                                      |cozybox.nvim-basic-usage|
+4. Configuration                                  |cozybox.nvim-configuration|
+  - Overriding                         |cozybox.nvim-configuration-overriding|
+>
+      <h1> <img src="https://i.postimg.cc/WpQzgxVh/plugin-Icon.png" width="80px"><br/>cozybox.nvim</h1>
+     </div>
+<
+
+
+Cozybox is a warm, dark Neovim theme with nix-tuned blue and green accents,
+darker editor surfaces, and syntax overrides baked in.
+
+
+==============================================================================
+1. Prerequisites                                  *cozybox.nvim-prerequisites*
+
+Neovim 0.8.0+
+
+
+==============================================================================
+2. Installing                                        *cozybox.nvim-installing*
+
+
+USING PACKER                            *cozybox.nvim-installing-using-packer*
+
+>lua
+    use { "harivansh-afk/cozybox.nvim" }
+<
+
+
+USING LAZY.NVIM                      *cozybox.nvim-installing-using-lazy.nvim*
+
+>lua
+    { "harivansh-afk/cozybox.nvim", priority = 1000 , config = true, opts = ...}
+<
+
+
+USING VIM-PLUG                        *cozybox.nvim-installing-using-vim-plug*
+
+>vim
+    Plug 'harivansh-afk/cozybox.nvim'
+<
+
+
+==============================================================================
+3. Basic Usage                                      *cozybox.nvim-basic-usage*
+
+Inside `init.vim`
+
+>vim
+    set background=dark " or light if you want light mode
+    colorscheme cozybox
+<
+
+Inside `init.lua`
+
+>lua
+    vim.o.background = "dark" -- or "light" for light mode
+    vim.cmd([[colorscheme cozybox]])
+<
+
+
+==============================================================================
+4. Configuration                                  *cozybox.nvim-configuration*
+
+Cozybox ships with the nix palette overrides and surface tweaks as defaults.
+A minimal setup looks like this:
+
+>lua
+    require("cozybox").setup({
+      contrast = "hard",
+      palette_overrides = {
+        bright_blue = "#5b84de",
+        neutral_blue = "#5b84de",
+        faded_blue = "#6c86c8",
+        bright_green = "#8ec97c",
+        neutral_green = "#8ec97c",
+        faded_green = "#6fae70",
+      },
+    })
+    vim.cmd("colorscheme cozybox")
+<
+
+Call `setup()` before `colorscheme` if you want to layer more overrides on top
+of the cozybox defaults.
+
+
+OVERRIDING                             *cozybox.nvim-configuration-overriding*
+
+
+PALETTE ~
+
+You can specify your own palette colors. For example:
+
+>lua
+    require("cozybox").setup({
+        palette_overrides = {
+            bright_green = "#990000",
+        }
+    })
+    vim.cmd("colorscheme cozybox")
+<
+
+
+HIGHLIGHT GROUPS ~
+
+If you don’t enjoy the current color for a specific highlight group, now you
+can just override it in the setup. For example:
+
+>lua
+    require("cozybox").setup({
+        overrides = {
+            SignColumn = {bg = "#ff9900"}
+        }
+    })
+    vim.cmd("colorscheme cozybox")
+<
+
+It also works with treesitter groups and lsp semantic highlight tokens
+
+>lua
+    require("cozybox").setup({
+        overrides = {
+            ["@lsp.type.method"] = { bg = "#ff9900" },
+            ["@comment.lua"] = { bg = "#000000" },
+        }
+    })
+    vim.cmd("colorscheme cozybox")
+<
+
+Please note that the override values must follow the attributes from the
+highlight group map, such as:
+
+- **fg** - foreground color
+- **bg** - background color
+- **bold** - true or false for bold font
+- **italic** - true or false for italic font
+
+Other values can be seen in |`synIDattr`|
+
+vim:tw=78:ts=8:noet:ft=help:norl:
