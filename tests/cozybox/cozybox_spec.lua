@@ -180,28 +180,10 @@ describe("tests", function()
     assert.are.same(vim.g.colors_name, "cozybox-light")
   end)
 
-  it("keeps accent highlights consistent across dark and light themes", function()
-    cozybox.setup()
-    vim.opt.background = "dark"
-    cozybox.load()
-
-    local dark = {
-      red = highlight_attr("CozyboxRed", "fg"),
-      green = highlight_attr("CozyboxGreen", "fg"),
-      yellow = highlight_attr("CozyboxYellow", "fg"),
-      blue = highlight_attr("CozyboxBlue", "fg"),
-      purple = highlight_attr("CozyboxPurple", "fg"),
-      aqua = highlight_attr("CozyboxAqua", "fg"),
-      orange = highlight_attr("CozyboxOrange", "fg"),
-      string = highlight_attr("String", "fg"),
-      git_add = highlight_attr("GitSignsAdd", "fg"),
-      git_change = highlight_attr("GitSignsChange", "fg"),
-      git_delete = highlight_attr("GitSignsDelete", "fg"),
-      git_untracked = highlight_attr("GitSignsUntracked", "fg"),
-      diff_add = highlight_attr("DiffAdd", "bg"),
-      diff_change = highlight_attr("DiffChange", "bg"),
-      diff_delete = highlight_attr("DiffDelete", "bg"),
-    }
+  it("uses the computed light contrast palette", function()
+    package.loaded["cozybox"] = nil
+    package.loaded["cozybox.light"] = nil
+    cozybox = require("cozybox")
 
     cozybox.setup(require("cozybox.light"))
     vim.opt.background = "light"
@@ -226,21 +208,21 @@ describe("tests", function()
       normal_bg = highlight_attr("Normal", "bg"),
     }
 
-    assert.are.same(dark.red, light.red)
-    assert.are.same(dark.green, light.green)
-    assert.are.same(dark.yellow, light.yellow)
-    assert.are.same(dark.blue, light.blue)
-    assert.are.same(dark.purple, light.purple)
-    assert.are.same(dark.aqua, light.aqua)
-    assert.are.same(dark.orange, light.orange)
-    assert.are.same(dark.string, light.string)
-    assert.are.same(dark.git_add, light.git_add)
-    assert.are.same(dark.git_change, light.git_change)
-    assert.are.same(dark.git_delete, light.git_delete)
-    assert.are.same(dark.git_untracked, light.git_untracked)
-    assert.are.same(dark.diff_add, light.diff_add)
-    assert.are.same(dark.diff_change, light.diff_change)
-    assert.are.same(dark.diff_delete, light.diff_delete)
+    assert.are.same(light.red, "#923f3a")
+    assert.are.same(light.green, "#2b4024")
+    assert.are.same(light.yellow, "#412e05")
+    assert.are.same(light.blue, "#4261a5")
+    assert.are.same(light.purple, "#6f4450")
+    assert.are.same(light.aqua, "#31452a")
+    assert.are.same(light.orange, "#793a06")
+    assert.are.same(light.string, "#2b4024")
+    assert.are.same(light.git_add, "#404523")
+    assert.are.same(light.git_change, "#543f1d")
+    assert.are.same(light.git_delete, "#923f3a")
+    assert.are.same(light.git_untracked, "#374f4a")
+    assert.are.same(light.diff_add, "#bbe5a0")
+    assert.are.same(light.diff_change, "#e3e3c2")
+    assert.are.same(light.diff_delete, "#ffc7c7")
     assert.are.same(light.normal_bg, "#e7e7e7")
     assert.are.same(vim.g.colors_name, "cozybox-light")
   end)
