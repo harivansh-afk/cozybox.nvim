@@ -1,6 +1,6 @@
 # cozybox.nvim
 
-Cozybox is a warm, dark Neovim theme with nix-tuned blue and green accents, darker editor surfaces, and syntax overrides baked in.
+Cozybox is a neo style darker gruvbox with havy blue and green accents, a nicer red, and a clean light mode (for outside).
 
 ## Install
 
@@ -15,21 +15,8 @@ Neovim `0.8+`.
 ```vim
 set background=dark " or light if you want light mode
 colorscheme cozybox
-
-" explicit light entrypoint with the same cozybox accent palette
-colorscheme cozybox-light
 ```
 
-## Override
+## Config
 
-```lua
-require("cozybox").setup({
-  transparent_mode = false,
-  palette_overrides = {},
-  overrides = {},
-})
-vim.cmd("colorscheme cozybox")
-```
-
-The theme already defaults to the custom blue/green palette, hard contrast, darker editor surfaces, and syntax highlight tweaks from your nix config.
 See `:h cozybox.nvim` or `lua/cozybox.lua` for the full option surface.

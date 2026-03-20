@@ -8,6 +8,11 @@ local function clear_term_colors()
   end
 end
 
+local function highlight_attr(name, attr)
+  local group_id = vim.api.nvim_get_hl_id_by_name(name)
+  return vim.fn.synIDattr(group_id, attr, "gui")
+end
+
 describe("tests", function()
   it("works with default values", function()
     cozybox.setup()
@@ -172,6 +177,71 @@ describe("tests", function()
     vim.opt.background = "light"
     cozybox.load("cozybox-light")
 
+    assert.are.same(vim.g.colors_name, "cozybox-light")
+  end)
+
+  it("keeps accent highlights consistent across dark and light themes", function()
+    cozybox.setup()
+    vim.opt.background = "dark"
+    cozybox.load()
+
+    local dark = {
+      red = highlight_attr("CozyboxRed", "fg"),
+      green = highlight_attr("CozyboxGreen", "fg"),
+      yellow = highlight_attr("CozyboxYellow", "fg"),
+      blue = highlight_attr("CozyboxBlue", "fg"),
+      purple = highlight_attr("CozyboxPurple", "fg"),
+      aqua = highlight_attr("CozyboxAqua", "fg"),
+      orange = highlight_attr("CozyboxOrange", "fg"),
+      string = highlight_attr("String", "fg"),
+      git_add = highlight_attr("GitSignsAdd", "fg"),
+      git_change = highlight_attr("GitSignsChange", "fg"),
+      git_delete = highlight_attr("GitSignsDelete", "fg"),
+      git_untracked = highlight_attr("GitSignsUntracked", "fg"),
+      diff_add = highlight_attr("DiffAdd", "bg"),
+      diff_change = highlight_attr("DiffChange", "bg"),
+      diff_delete = highlight_attr("DiffDelete", "bg"),
+    }
+
+    cozybox.setup(require("cozybox.light"))
+    vim.opt.background = "light"
+    cozybox.load("cozybox-light")
+
+    local light = {
+      red = highlight_attr("CozyboxRed", "fg"),
+      green = highlight_attr("CozyboxGreen", "fg"),
+      yellow = highlight_attr("CozyboxYellow", "fg"),
+      blue = highlight_attr("CozyboxBlue", "fg"),
+      purple = highlight_attr("CozyboxPurple", "fg"),
+      aqua = highlight_attr("CozyboxAqua", "fg"),
+      orange = highlight_attr("CozyboxOrange", "fg"),
+      string = highlight_attr("String", "fg"),
+      git_add = highlight_attr("GitSignsAdd", "fg"),
+      git_change = highlight_attr("GitSignsChange", "fg"),
+      git_delete = highlight_attr("GitSignsDelete", "fg"),
+      git_untracked = highlight_attr("GitSignsUntracked", "fg"),
+      diff_add = highlight_attr("DiffAdd", "bg"),
+      diff_change = highlight_attr("DiffChange", "bg"),
+      diff_delete = highlight_attr("DiffDelete", "bg"),
+      normal_bg = highlight_attr("Normal", "bg"),
+    }
+
+    assert.are.same(dark.red, light.red)
+    assert.are.same(dark.green, light.green)
+    assert.are.same(dark.yellow, light.yellow)
+    assert.are.same(dark.blue, light.blue)
+    assert.are.same(dark.purple, light.purple)
+    assert.are.same(dark.aqua, light.aqua)
+    assert.are.same(dark.orange, light.orange)
+    assert.are.same(dark.string, light.string)
+    assert.are.same(dark.git_add, light.git_add)
+    assert.are.same(dark.git_change, light.git_change)
+    assert.are.same(dark.git_delete, light.git_delete)
+    assert.are.same(dark.git_untracked, light.git_untracked)
+    assert.are.same(dark.diff_add, light.diff_add)
+    assert.are.same(dark.diff_change, light.diff_change)
+    assert.are.same(dark.diff_delete, light.diff_delete)
+    assert.are.same(light.normal_bg, "#e7e7e7")
     assert.are.same(vim.g.colors_name, "cozybox-light")
   end)
 end)
