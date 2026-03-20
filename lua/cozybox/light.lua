@@ -5,9 +5,6 @@ local selection = "#c3c7c9"
 return {
   contrast = "hard",
   palette_overrides = {
-    bright_red = "#ea6962",
-    neutral_red = "#ea6962",
-    faded_red = "#ea6962",
     bright_green = "#8ec97c",
     neutral_green = "#8ec97c",
     faded_green = "#8ec97c",
