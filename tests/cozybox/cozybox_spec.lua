@@ -166,4 +166,12 @@ describe("tests", function()
     assert.are.same(cozybox.config.contrast, "hard")
     assert.are.same(cozybox.config.overrides.Normal.bg, "#181818")
   end)
+
+  it("supports custom colorscheme names during load", function()
+    cozybox.setup()
+    vim.opt.background = "light"
+    cozybox.load("cozybox-light")
+
+    assert.are.same(vim.g.colors_name, "cozybox-light")
+  end)
 end)

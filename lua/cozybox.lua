@@ -1398,8 +1398,9 @@ Cozybox.setup = function(config)
   Cozybox.config = vim.tbl_deep_extend("force", Cozybox.config, config or {})
 end
 
+---@param colors_name string?
 --- main load function
-Cozybox.load = function()
+Cozybox.load = function(colors_name)
   if vim.version().minor < 8 then
     vim.notify_once("cozybox.nvim: you must use neovim 0.8 or higher")
     return
@@ -1409,7 +1410,7 @@ Cozybox.load = function()
   if vim.g.colors_name then
     vim.cmd.hi("clear")
   end
-  vim.g.colors_name = "cozybox"
+  vim.g.colors_name = colors_name or "cozybox"
   vim.o.termguicolors = true
 
   local groups = get_groups()

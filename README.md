@@ -15,6 +15,9 @@ Neovim `0.8+`.
 ```vim
 set background=dark " or light if you want light mode
 colorscheme cozybox
+
+" explicit light entrypoint with the same cozybox accent palette
+colorscheme cozybox-light
 ```
 
 ## Override
