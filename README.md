@@ -4,7 +4,7 @@
 <img width="1800" height="1131" alt="image" src="https://github.com/user-attachments/assets/68b6e7b8-4496-483f-827e-a0ae2154fd06" />
 
 ## Light
-<img width="1800" height="1130" alt="image" src="https://github.com/user-attachments/assets/e3fb14ba-807b-4e08-a299-b39ba263f335" />
+<img width="1800" height="1131" alt="image" src="https://github.com/user-attachments/assets/cd4f56f5-7cac-4c1e-a715-c981e949beb1" />
 
 ## Install
 
