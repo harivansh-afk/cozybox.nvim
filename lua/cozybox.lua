@@ -1270,7 +1270,7 @@ local function get_groups()
     ["@storageclass"] = { link = "StorageClass" },
     ["@attribute"] = { link = "PreProc" },
     ["@field"] = { link = "Identifier" },
-    ["@property"] = { link = "CozyboxGreen" },
+    ["@property"] = { link = "Identifier" },
     ["@variable"] = { link = "CozyboxFg1" },
     ["@variable.builtin"] = { link = "Special" },
     ["@variable.member"] = { link = "Identifier" },
