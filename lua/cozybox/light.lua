@@ -44,5 +44,13 @@ return {
     DiffAdd = { bg = "#d9e8d2" },
     DiffChange = { bg = "#eee4c7" },
     DiffDelete = { bg = "#ffc7c7" },
+    BlinkCmpMenu = { bg = background },
+    BlinkCmpMenuBorder = { fg = "#c3c7c9", bg = background },
+    BlinkCmpMenuSelection = { bg = selection, bold = true },
+    BlinkCmpDoc = { bg = background },
+    BlinkCmpDocBorder = { fg = "#c3c7c9", bg = background },
+    BlinkCmpDocSeparator = { fg = "#c3c7c9", bg = background },
+    BlinkCmpSignatureHelp = { bg = background },
+    BlinkCmpSignatureHelpBorder = { fg = "#c3c7c9", bg = background },
   },
 }
