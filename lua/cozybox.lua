@@ -1366,6 +1366,10 @@ local function get_groups()
     ["@lsp.type.type"] = { link = "@type" },
     ["@lsp.type.typeParameter"] = { link = "@type.definition" },
     ["@lsp.type.variable"] = { link = "@variable" },
+    -- Go: gopls emits struct fields as "variable" and interface methods as "method"
+    -- Override per-language so they get colored rather than falling to plain fg
+    ["@lsp.type.variable.go"] = { link = "@variable.member" },
+    ["@lsp.type.method.go"] = { link = "@function" },
 
     -- NeoTreeDirectoryName = { link = "Directory" },
     -- NeoTreeDotfile = { fg = colors.fg4 },
