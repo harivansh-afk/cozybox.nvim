@@ -69,8 +69,11 @@ local default_config = {
     bright_blue = "#5b84de",
     neutral_blue = "#5b84de",
     faded_blue = "#6c86c8",
-    bright_green = "#8ec97c",
-    neutral_green = "#8ec97c",
+    bright_yellow = "#d8a657",
+    neutral_yellow = "#d8a657",
+    faded_yellow = "#d8a657",
+    bright_green = "#a9b665",
+    neutral_green = "#a9b665",
     faded_green = "#6fae70",
   },
   overrides = {
