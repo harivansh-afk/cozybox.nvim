@@ -34,21 +34,21 @@ Neovim 0.8.0+
 USING PACKER                            *cozybox.nvim-installing-using-packer*
 
 >lua
-    use { "harivansh-afk/cozybox.nvim" }
+    use { "https://git.harivan.sh/harivansh-afk/cozybox.nvim" }
 <
 
 
 USING LAZY.NVIM                      *cozybox.nvim-installing-using-lazy.nvim*
 
 >lua
-    { "harivansh-afk/cozybox.nvim", priority = 1000 , config = true, opts = ...}
+    { "https://git.harivan.sh/harivansh-afk/cozybox.nvim", priority = 1000 , config = true, opts = ...}
 <
 
 
 USING VIM-PLUG                        *cozybox.nvim-installing-using-vim-plug*
 
 >vim
-    Plug 'harivansh-afk/cozybox.nvim'
+    Plug 'https://git.harivan.sh/harivansh-afk/cozybox.nvim'
 <
 
 
