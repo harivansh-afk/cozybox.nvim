@@ -1,17 +1,17 @@
 # cozybox.nvim
 
 ## Dark
-<img width="1800" height="1131" alt="image" src="https://github.com/user-attachments/assets/68b6e7b8-4496-483f-827e-a0ae2154fd06" />
+<img width="1800" height="1131" alt="image" src="docs/assets/cozybox-dark.png" />
 
 ## Light
-<img width="1800" height="1131" alt="image" src="https://github.com/user-attachments/assets/cd4f56f5-7cac-4c1e-a715-c981e949beb1" />
+<img width="1800" height="1131" alt="image" src="docs/assets/cozybox-light.png" />
 
 ## Install
 
 Cozybox is a neo style darker gruvbox with havy blue and green accents, a nicer red, and a clean light mode (for outside).
 
 ```lua
-{ "harivansh-afk/cozybox.nvim", priority = 1000 , config = true, opts = ...}
+{ "https://git.harivan.sh/harivansh-afk/cozybox.nvim", priority = 1000 , config = true, opts = ...}
 ```
 
 Neovim `0.8+`.
