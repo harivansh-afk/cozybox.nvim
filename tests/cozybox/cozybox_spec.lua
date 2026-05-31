@@ -25,7 +25,7 @@ describe("tests", function()
     assert.is_false(cozybox.config.underline)
     assert.are.same(cozybox.config.contrast, "hard")
     assert.are.same(cozybox.config.palette_overrides.bright_blue, "#5b84de")
-    assert.are.same(cozybox.config.overrides.Normal.bg, "#181818")
+    assert.are.same(cozybox.config.overrides.Normal.bg, "#101010")
   end)
 
   it("should override a hightlight color", function()
@@ -156,20 +156,20 @@ describe("tests", function()
     cozybox.setup({ contrast = "hard" })
     assert.are.same(cozybox.config.contrast, "hard")
     -- Check that overrides from the first call are reset to the cozybox defaults
-    assert.are.same(cozybox.config.overrides.CursorLine.bg, "#1e1e1e")
+    assert.are.same(cozybox.config.overrides.CursorLine.bg, "#161616")
 
     -- Third call to setup with different overrides
     cozybox.setup({
       overrides = { Normal = { fg = "#00FF00" } },
     })
     assert.are.same(cozybox.config.contrast, "hard") -- Contrast should be reset to the cozybox default
-    assert.are.same(cozybox.config.overrides.CursorLine.bg, "#1e1e1e") -- Default CursorLine override is preserved
+    assert.are.same(cozybox.config.overrides.CursorLine.bg, "#161616") -- Default CursorLine override is preserved
     assert.are.same(cozybox.config.overrides.Normal.fg, "#00FF00") -- New override is present
 
     -- Call setup with no arguments to reset to defaults
     cozybox.setup()
     assert.are.same(cozybox.config.contrast, "hard")
-    assert.are.same(cozybox.config.overrides.Normal.bg, "#181818")
+    assert.are.same(cozybox.config.overrides.Normal.bg, "#101010")
   end)
 
   it("supports custom colorscheme names during load", function()
