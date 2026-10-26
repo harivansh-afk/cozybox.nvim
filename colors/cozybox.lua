@@ -1,1 +1,1 @@
-require("cozybox").load()
+require("cozybox").load("dark")
